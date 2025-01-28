@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #000000;
+  color: #fff;
+  box-sizing: border-box;
+  overflow: hidden;
+  overflow-y: auto;
+  font-family: 'Jost', Courier, monospace;
+}
+
+.container {
+  text-align: center;
+  z-index: 2;
+}
+
+code {
+  color: gold;
+}
+
+.quote {
+  color: purple;
+}
+
+::-webkit-scrollbar-thumb: {
+  background-color: #000000;
+  border-radius: 10px;
+  border: 2px solid #000000;
+  width: 5px;
+}
+
+::-webkit-scrollbar: {
+  width: 3px;
+}
+
+/* Glitch Text */
+.glitch {
+  font-size: 3rem;
+  font-weight: bold;
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: #ff0000;
+  z-index: -1;
+  animation: glitch 0.2s infinite;
+}
+
+.glitch::after {
+  color: #00ff00;
+  z-index: -2;
+  animation: glitch 0.2s infinite reverse;
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  20% {
+    transform: translate(-2px, 2px);
+  }
+
+  40% {
+    transform: translate(-2px, -2px);
+  }
+
+  60% {
+    transform: translate(2px, 2px);
+  }
+
+  80% {
+    transform: translate(2px, -2px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* Button Glitch */
+.btn-glitch {
+  background: transparent;
+  border: 2px solid #fff;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-glitch:hover::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 0, 0, 0.3);
+  transform: rotate(45deg);
+  animation: glitch-btn 0.3s ease-out forwards;
+}
+
+@keyframes glitch-btn {
+  0% {
+    top: -100%;
+    left: -100%;
+  }
+
+  50% {
+    top: 50%;
+    left: 50%;
+  }
+
+  100% {
+    top: 100%;
+    left: 100%;
+  }
+}
+
+/* Background Noise */
+.noise-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://media.giphy.com/media/hqU2KkjW5bE2v2Z7Q2/giphy.gif');
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Funky SVG Glitch Animation */
+.svg-glitch {
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+  z-index: 2;
+}
+
+.svg-rect {
+  fill: transparent;
+  stroke: #fff;
+  stroke-width: 2;
+  animation: svg-glitch 1.5s infinite;
+}
+
+@keyframes svg-glitch {
+
+  0%,
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+
+  25% {
+    transform: scale(1.1) translate(-3px, 3px);
+    stroke: #ff0000;
+  }
+
+  50% {
+    transform: scale(0.9) translate(3px, -3px);
+    stroke: #00ff00;
+  }
+
+  75% {
+    transform: scale(1.2) translate(-2px, 2px);
+    stroke: #0000ff;
+  }
+}
+
+.noise-overlay-2 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+
+.shiny-text {
+  color: #b5b5b5a4;
+  /* Adjust this color to change intensity/style */
+  background: linear-gradient(120deg,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, 0.8) 50%,
+      rgba(255, 255, 255, 0) 60%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  display: inline-block;
+  animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 100%;
+  }
+
+  100% {
+    background-position: -100%;
+  }
+}
+
+.shiny-text.disabled {
+  animation: none;
+}
