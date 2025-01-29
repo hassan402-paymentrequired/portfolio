@@ -1,12 +1,21 @@
 import { useRef, useEffect } from 'react';
 
+
+interface Props {
+    patternSize:number,
+  patternScaleX: number,
+  patternScaleY: number,
+  patternRefreshInterval: number
+  patternAlpha: number,
+}
+
 const Noise = ({
   patternSize = 250,
   patternScaleX = 1,
   patternScaleY = 1,
   patternRefreshInterval = 2,
   patternAlpha = 15,
-}) => {
+}: Props) => {
   const grainRef = useRef(null);
 
   useEffect(() => {

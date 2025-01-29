@@ -1,8 +1,24 @@
 'use client';
 import { useEffect, useRef } from 'react';
 
+interface Props {
+  SIM_RESOLUTION: number,
+  DYE_RESOLUTION: number,
+  CAPTURE_RESOLUTION: number
+  DENSITY_DISSIPATION: number
+  VELOCITY_DISSIPATION: number
+  PRESSURE: number
+  PRESSURE_ITERATIONS: number
+  CURL: number
+  SPLAT_RADIUS: number
+  SPLAT_FORCE: number
+  SHADING: boolean
+  COLOR_UPDATE_SPEED: number
+  BACK_COLOR: any,
+  TRANSPARENT: boolean,
+}
+
 function Cursor({
-  // Add whatever props you like for customization
   SIM_RESOLUTION = 128,
   DYE_RESOLUTION = 1440,
   CAPTURE_RESOLUTION = 512,
@@ -17,7 +33,7 @@ function Cursor({
   COLOR_UPDATE_SPEED = 10,
   BACK_COLOR = { r: 0.5, g: 0, b: 0 },
   TRANSPARENT = true,
-}) {
+}: Props) {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -37,7 +53,7 @@ function Cursor({
       this.color = [0, 0, 0];
     }
 
-    let config = {
+    const config = {
       SIM_RESOLUTION,
       DYE_RESOLUTION,
       CAPTURE_RESOLUTION,
@@ -55,7 +71,7 @@ function Cursor({
       TRANSPARENT,
     };
 
-    let pointers = [new pointerPrototype()];
+    const pointers = [new pointerPrototype()];
 
     const { gl, ext } = getWebGLContext(canvas);
     if (!ext.supportLinearFiltering) {

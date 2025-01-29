@@ -1,5 +1,15 @@
 import { useState } from "react";
 
+interface Props {
+  items: any[] | any;
+  direction: string,
+  pauseOnHover: boolean,
+  size: string,
+  duration: string,
+  textColor: string,
+  bgAccentColor: string
+}
+
 function LogoWall({
   items = [],
   direction = "horizontal",
@@ -7,9 +17,8 @@ function LogoWall({
   size = "clamp(8rem, 1rem + 30vmin, 25rem)",
   duration = "60s",
   textColor = "#ffffff",
-  bgColor = "#060606",
   bgAccentColor = "#111111"
-}) {
+}: Props) {
   const [isPaused, setIsPaused] = useState(false);
 
   const wrapperClass = [
@@ -19,8 +28,6 @@ function LogoWall({
     "mx-auto",
     "max-w-full",
     "p-[20px_10px]",
-    // Apply text and bg from CSS variables if desired
-    // (We do that inline style below)
     direction === "vertical" && "flex-row justify-center h-full"
   ]
     .filter(Boolean)
@@ -53,7 +60,7 @@ function LogoWall({
         backgroundColor: "var(--color-bg)"
       }}
     >
-   
+
 
       <div
         className={
@@ -79,8 +86,8 @@ function LogoWall({
           {items.map((item, idx) => (
             <img
               key={`rev-${idx}`}
-              src={item.imgUrl}
-              alt={item.altText}
+              src={item?.imgUrl}
+              alt={item?.altText}
               className={[
                 "bg-[var(--color-bg-accent)]",
                 "rounded-md",
@@ -114,7 +121,7 @@ function LogoWall({
             <img
               key={`dup2-${idx}`}
               src={item.imgUrl}
-              width={40} 
+              width={40}
               alt={item.altText}
               className={[
                 "bg-[var(--color-bg-accent)]",
