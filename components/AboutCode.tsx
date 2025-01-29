@@ -7,9 +7,9 @@ const AboutCode = () => {
         name: "Hassan Lateef",
         profession: "💻 Software Developer",
         location: "📍 Lagos, Nigeria",
-        specializations: ["🖥️ Backend Development", "🌐 Full-Stack Development"],
-        background: "⚙️ PHP, JavaScript, and Laravel Developer",
-        hobbies: ["🚀 Building Projects", "📚 Learning New Technologies", "🎥 Watching Tech Videos"],
+        specializations: ["🖥️ Backend and", "🌐 Full-Stack Development"],
+        background: "⚙️ PHP, JavaScript, and Laravel",
+        hobbies: ["🚀 Cooking Some Gradles 😜", "📚 Learning New Technologies", "🎥 Watching Tech Talks"],
         message: "✨ I’m always open to new opportunities, collaborations, and leveling up my skills!"
     };
 
@@ -23,7 +23,7 @@ const AboutCode = () => {
                 {aboutMe.specializations.map((skill, index) => (
                     <span key={index} className="text-blue-400">
                         {skill}
-                        {index < aboutMe.specializations.length - 1 && ", "}
+                        {index < aboutMe.specializations.length - 1 && " "}
                     </span>
                 ))}
                 .

@@ -21,7 +21,7 @@ const Project = () => {
   return (
 
     <div className='h-auto w-full relative mt-10'>
-      <h1 className='px-10 max-sm:px-5 text-4xl'>My Tools 💻</h1>
+      {/* <h1 className='px-10 max-sm:px-5 text-4xl'>My Tools 💻</h1> */}
       <LogoWall
         items={logoImgs}
         direction='horizontal'

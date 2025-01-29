@@ -2,6 +2,7 @@ import { useState } from 'react'
 import AboutCode from '../components/AboutCode'
 import img from '../public/images/me.png'
 import Music from './Music'
+import { Link } from 'react-router-dom'
 
 export default function Hero() {
   const [isShowing, setIsShowing] = useState(false)
@@ -41,9 +42,9 @@ export default function Hero() {
                   >
                     Need a developer
                   </a>
-                  <a href="#" className="text-sm/6 font-semibold text-gray-500">
+                  <Link to={'/my-project'} className="text-sm/6 font-semibold text-gray-500">
                     View My Projects <span aria-hidden="true">→</span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
