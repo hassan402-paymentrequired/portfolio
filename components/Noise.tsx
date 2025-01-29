@@ -20,7 +20,7 @@ const Noise = ({
 
   useEffect(() => {
     const canvas = grainRef.current;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas?.getContext('2d');
     let frame = 0;
 
     const patternCanvas = document.createElement('canvas');
