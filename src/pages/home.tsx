@@ -5,7 +5,7 @@ const Home = () => {
     return (
         <div>
             <Hero />
-            {/* <Project autoplay={true} pauseOnHover={true} /> */}
+            <Project  />
         </div>
     )
 }

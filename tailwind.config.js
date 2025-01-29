@@ -12,6 +12,20 @@ export default {
   ],
   theme: {
     extend: {
+      keyframes: {
+        scrollX: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-100%)" }
+        },
+        scrollY: {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(-100%)" }
+        }
+      },
+      animation: {
+        scrollX: "scrollX var(--duration) linear infinite",
+        scrollY: "scrollY var(--duration) linear infinite"
+      },
       colors: {
         customYellow: {
           light: '#fff940',
@@ -31,7 +45,6 @@ export default {
   plugins: [addVariablesForColors],
 };
 
-// This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).
 function addVariablesForColors({ addBase, theme }: any) {
   let allColors = flattenColorPalette(theme("colors"));
   let newVars = Object.fromEntries(

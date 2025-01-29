@@ -1,7 +1,10 @@
+import { useState } from 'react'
 import AboutCode from '../components/AboutCode'
 import img from '../public/images/me.png'
+import Music from './Music'
 
 export default function Hero() {
+  const [isShowing, setIsShowing] = useState(false)
   return (
     <div className="bg-[#000000] ">
       <div className="relative isolate overflow-hidden bg-linear-to-b from-indigo-100/20">
@@ -24,12 +27,13 @@ export default function Hero() {
                     </span> */}
                   </a>
                 </div>
-                <h1 className="mt-10 text-5xl font-semibold tracking-tight text-pretty text-gray-200 sm:text-7xl">
+                <h1 className="mt-6 text-5xl font-semibold tracking-tight text-pretty text-gray-200 sm:text-7xl">
                   Welcome to Laramic Studio
                 </h1>
-                <p className="mt-6 text-lg/8 text-gray-600">
-                  Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.
+                <p className="mt-3 text-lg/8 text-gray-400">
+                  Crafting innovative digital experiences, one line of code at a time. Let's build something extraordinary together.
                 </p>
+
                 <div className="mt-10 flex items-center gap-x-6">
                   <a
                     href="#"
@@ -59,15 +63,31 @@ export default function Hero() {
                 <div className="relative px-6 pt-8 sm:pt-16 mt-10 max-sm:mt-1 md:pr-0 md:pl-16">
                   <div className="mx-auto max-w-2xl md:mx-0 md:max-w-none">
                     <div className="w-screen overflow-hidden rounded-tl-xl bg-customBlack-dark">
-                      <div className="flex bg-bg-customBlack-dark ring-1 ring-white/5">
+                      <div className="flex bg-customBlack-dark ring-1 ring-white/5">
                         <div className="-mb-px flex text-sm/6 font-medium text-gray-400">
-                          <div className="border-r border-b border-r-white/10 border-b-white/20 bg-white/5 px-4 py-2 text-white">
-                            NotificationSetting.jsx
+                          <div
+                            onClick={() => setIsShowing(true)}
+                            className={`border-r border-b ${isShowing
+                              ? "border-r-white/10 border-b-white/20 bg-white/5 text-white"
+                              : "border-gray-600/10 bg-transparent text-gray-400 hover:bg-gray-700/10"
+                              } px-4 py-2 cursor-pointer`}
+                          >
+                            Hassan.jsx
                           </div>
-                          <div className="border-r border-gray-600/10 px-4 py-2">Hassan.jsx</div>
+                          <div
+                            onClick={() => setIsShowing(false)}
+                            className={`border-r border-b ${!isShowing
+                              ? "border-r-white/10 border-b-white/20 bg-white/5 text-white"
+                              : "border-gray-600/10 bg-transparent text-gray-400 hover:bg-gray-700/10"
+                              } px-4 py-2 cursor-pointer`}
+                          >
+                            Vibez.jsx
+                          </div>
                         </div>
                       </div>
-                      <AboutCode />
+                      <div>
+                        {isShowing ? <AboutCode /> : <Music />}
+                      </div>
                     </div>
                   </div>
                   <div
