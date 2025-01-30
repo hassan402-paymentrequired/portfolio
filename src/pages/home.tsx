@@ -1,7 +1,7 @@
 import Hero from '../../components/Hero'
 import Project from '../../components/ui/Project'
 import { Timeline } from './Timeline';
-import doctor from '../../public/images/doctor.png';
+import Request from '../../components/ui/Request';
 
 const Home = () => {
     const data = [
@@ -60,6 +60,7 @@ const Home = () => {
             <Hero />
             <Project />
             <Timeline data={data} />
+            <Request />
         </div>
     )
 }
